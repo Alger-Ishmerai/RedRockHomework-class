@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // lv0
+    let OBJ = new Object();
+    name: 'LiHua';
+    age: 18;
+    gender: 'man';
+
+    function OBj() {
+      name: 'LiHua';
+      age: 18;
+      gender: 'man';
+    }
+
+    let obj = { name: 'LiHua', age: 18, gender: 'man' };
+    // lv1
+    let arr = [];
+    let obj1, obj2, obj3;
+    for (let i = 0; i < 3; i++) {
+      let objany = { ...obj };
+      arr.push(objany);
+    }
+
+    console.table(arr);
+  </script>
+
+
+</body>
+
+</html>
