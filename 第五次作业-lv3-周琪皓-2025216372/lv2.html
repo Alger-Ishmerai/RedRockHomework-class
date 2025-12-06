@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    var name = 'window'
+    function Person(name) {
+      this.name = name
+      this.foo1 = function () {
+        console.log(this.name)
+      }
+      this.foo2 = () => console.log(this.name)
+      this.foo3 = function () {
+        return function () {
+          console.log(this.name)
+        }
+      }
+      this.foo4 = function () {
+        return () => {
+          console.log(this.name)
+        }
+      }
+    }
+
+    var person1 = new Person('person1')
+    var person2 = new Person('person2')
+
+    //箭头函数没有自己的this，this在定义时被决定，普通函数有自己的this，this在调用时被确定
+
+    person1.foo1()//由于隐式绑定，foo1中的this绑定了person1，person1.name值为person1，输出person1
+    person1.foo1.call(person2)//call指定函数运行时的this，执行this.foo1（）函数，this被绑定为person2，对应的this.name也是person2，输出person2
+
+    person1.foo2()//和foo1没有区别，输出person1
+    person1.foo2.call(person2)//person1，call了person2但是由于this.foo2是箭头函数，指定了个寂寞，所以相当于在虚空索敌？输出person1
+
+    person1.foo3()()//return了一个独立的函数，独立函数的this为window，输出window
+    person1.foo3.call(person2)()//给foo3的this绑定了person2，但是foo3中没有this，只有一个返回函数，so输出window
+    person1.foo3().call(person2)//给返回的函数指定了this为person2，person2.name为person2，输出person2
+
+    person1.foo4()()//return的函数为箭头函数，没有this，往外找，foo4函数this是person1，输出person1
+    person1.foo4.call(person2)()//调用foo4函数，this被绑定为person2，输出person2
+    person1.foo4().call(person2) //虚空索敌，同foo4（）（），输出person1
+  </script>
+</body>
+
+</html>

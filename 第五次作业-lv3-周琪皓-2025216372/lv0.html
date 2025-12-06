@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    const person = {
+      name: '小明',
+      age: 18,
+      address: {
+        city: 'ChongQing',
+        area: 'RedRock',
+      },
+      title: ['student', { year: 2025, title: 'GoodStundet' }]
+    }
+    const { name, age, address, title } = person;
+    const { city, area: mountain } = person.address;
+    const [title1, temp1] = person.title;
+    const { year, title: title2 } = temp1;
+    console.log(name);
+    console.log(year);
+    console.log(city);
+    console.log(mountain);
+    console.log(title1);
+    console.log(title2);
+  </script>
+</body>
+
+</html>

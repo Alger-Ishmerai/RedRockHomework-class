@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    //一个特别简单的深拷贝，实战应该都用JSON了，不用自己写判断，或者引用_.cloneDeep()?
+    function deepCopy(newObj, oldObj) {
+      if (oldObj === null || oldObj === undefined) {
+        return oldObj;
+      }
+      if (typeof oldObj !== 'object') {
+        return oldObj;
+      }
+      for (let k in oldObj) {
+        if (oldObj[k] instanceof Array) {
+          newObj[k] = [];
+          deepCopy(newObj[k], oldObj[k]);
+        } else if (oldObj[k] instanceof Object) {
+          newObj[k] = {};
+          deepCopy(newObj[k], oldObj[k]);
+        } else {
+          newObj[k] = oldObj[k];
+        }
+      }
+    }
+    //测试
+    const Old = {
+      name: 'redrock',
+      area: 'nanshan'
+    }
+    const New = {};
+    deepCopy(New, Old);
+    New.name = 'redRock';
+    console.log(New.name);
+    console.log(Old.name);
+  </script>
+</body>
+
+</html>
