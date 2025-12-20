@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .box {
+      max-width: 800px;
+      min-width: 400px;
+      display: flex;
+      margin: 10px;
+      justify-content: flex-end;
+      align-items: center;
+    }
+
+    textarea {
+      width: 800px;
+      height: 30px;
+      font-size: 10px;
+      padding: 5px;
+      flex: 1;
+    }
+
+    .box .send {
+      outline: none;
+      width: 50px;
+      height: 40px;
+      background-color: #007bff;
+      color: #fff;
+      margin-left: 10px;
+      margin-top: 2px;
+      text-align: center;
+      line-height: 40px;
+      border-radius: 5px;
+    }
+
+    #comment {
+      width: 800px;
+      height: 30px;
+      font-size: 16px;
+    }
+
+    .text {
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- 一个非常质朴的评论区,绝对不是因为我懒 -->
+  <p>/虽然评论区很简朴，但是按enter发送评论这个功能还是有的/</p>
+  <div class="box">
+    <textarea placeholder="来发表友善的评论叭" id="comment"></textarea>
+    <button type="button" class="send">发送</button>
+  </div>
+  <div class="text"></div>
+  <div id="comments-container"></div>
+  <script>
+    const send = document.querySelector('.send');
+    const commentInput = document.querySelector('#comment');
+    const text = document.querySelector('.text');
+    send.addEventListener('click', () => {
+      if (commentInput.value.trim()) {
+        text.style.display = 'block';
+        text.innerHTML = commentInput.value.trim();
+      }
+      commentInput.value = '';
+    })
+    comment.addEventListener('keyup', (e) => {
+      if (e.key === 'Enter') {
+        send.click();
+      }
+    })
+
+  </script>
+</body>
+
+</html>

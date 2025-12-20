@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>lv2</title>
+</head>
+
+<body>
+  <div>
+    <b>请选择您的爱好</b>
+    <br />
+  </div>
+  <div id="divlist">
+    <input type="checkbox" value="内卷" class="input">内卷
+    <input type="checkbox" value="疯狂内卷" class="input">疯狂内卷
+    <input type="checkbox" value="拼命内卷" class="input">拼命内卷
+    <input type="checkbox" value="使劲内卷" class="input">使劲内卷
+    <br />
+    <input type="button" value="全选" id="selectAll">
+    <input type="button" value="全不选" id="deselectAll">
+    <input type="button" value="反选" id="invertSelection">
+  </div>
+  <script>
+    const selectAll = document.querySelector('#selectAll');
+    const deselectAll = document.querySelector('#deselectAll');
+    const invertSelection = document.querySelector('#invertSelection');
+    const input = document.querySelectorAll('#divlist .input');
+    selectAll.addEventListener('click', () => {
+      input.forEach((item) => {
+        item.checked = true;
+      })
+    })
+    deselectAll.addEventListener('click', () => {
+      input.forEach((item) => {
+        item.checked = false;
+      })
+    })
+    invertSelection.addEventListener('click', () => {
+      input.forEach((item) => {
+        item.checked = !item.checked;
+      })
+    })
+
+  </script>
+</body>
+
+</html>
