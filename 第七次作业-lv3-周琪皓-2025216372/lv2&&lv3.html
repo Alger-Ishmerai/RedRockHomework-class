@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <!-- 作为前作的升级版，利用async和await解决了每一行文字同时输出的问题 -->
+  <!-- lv2 && lv3写一块，因为感觉只用promise和没有用promise 0区别（摊手） -->
+  <!-- 千奇百怪的错误，好难好难好难好难 -->
+  <script>
+    const title = "湖心亭看雪";
+    const writer = "张岱";
+    const content1 = "崇祯五年十二月，余住西湖。大雪三日，湖中人鸟声俱绝。是日更定矣，余拏一小舟，拥毳衣炉火，独往湖心亭看雪。雾凇沆砀，天与云与山与水，上下一白。湖上影子，惟长堤一痕、湖心亭一点，与余舟一芥、舟中人两三粒而已。";
+    const content2 = "到亭上，有两人铺毡对坐，一童子烧酒炉正沸。见余，大喜曰：“湖中焉得更有此人！”拉余同饮。余强饮三大白而别。问其姓氏，是金陵人，客此。及下船，舟子喃喃曰：“莫说相公痴，更有痴似相公者！";
+    async function delayed(text, elementType) {
+      const element = document.createElement(elementType);
+      document.body.appendChild(element);
+      return new Promise(resolve => {
+        let i = 0;
+        function write() {
+          if (i < text.length) {
+            element.innerText += text[i];
+            i++;
+            setTimeout(write, 50);
+          }
+          else {
+            resolve();
+          }
+        }
+        write();
+      });
+    }
+    (async () => {
+      await delayed(title, 'p');
+      await delayed(writer, 'p');
+      await delayed(content1, 'p');
+      await delayed(content2, 'p');
+    })();
+
+
+    // () => new Promise(resovle => {}
+  </script>
+</body>
+
+</html>
