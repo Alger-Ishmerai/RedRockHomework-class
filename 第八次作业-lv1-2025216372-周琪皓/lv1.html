@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <!-- https://api.openweathermap.org/data/2.5/weather?q=Chongqing&appid=d4493cab200c74d808dd8ef36a9376a2&units=metric&lang=zh_cn -->
+  <script>
+    fetch('https://api.openweathermap.org/data/2.5/weather?q=Chongqing&appid=d4493cab200c74d808dd8ef36a9376a2&units=metric&lang=zh_cn')
+      .then(res => res.json())
+      .then(data => {
+        console.log(data);
+        console.log(data.weather);
+        console.log(data.main.temp);
+      });
+  </script>
+</body>
+
+</html>

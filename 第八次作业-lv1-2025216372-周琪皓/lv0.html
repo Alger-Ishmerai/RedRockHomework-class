@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    fetch('https://api.github.com/users/Alger-Ishmerai')
+      .then(res => res.json())//箭头函数单个表达式有隐式返回
+      .then(data => {
+        console.log(data);
+        console.log(data.login);
+        console.log(data.type);
+      });
+  </script>
+</body>
+
+</html>
