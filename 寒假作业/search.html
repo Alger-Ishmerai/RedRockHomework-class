@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./NetEase CloudMusic.css">
+  <link rel="stylesheet" href="./font_hry09eo469g/iconfont.css">
+  <link rel="stylesheet" href="./font_xu85kuv4ghc/iconfont.css">
+
+</head>
+
+<body>
+  <div class="container">
+
+    <!-- 侧边栏 -->
+    <div class="sidebar">
+      <div class="logo"><span class=" iconfont icon-wangyiyun"></span>网易云音乐</div>
+      <a href="./recommend.html" class="menu"><span class="iconfont icon-solid-home"></span>推荐</a>
+      <a href="./selected-music.html" class="menu"><span class=" iconfont icon-gl-musicAlbum"></span>精选</a>
+      <div class="myMenu">我的</div>
+      <a href="./mymusic.html" class="menu"><span class="iconfont icon-xiai"></span>我喜欢的音乐</a>
+    </div>
+
+    <!-- 主体 -->
+    <div class="content">
+      <!-- 头部 -->
+      <div class="header">
+        <!-- 搜索 -->
+        <div class="back"></div>
+        <label for="search">
+          <span class="iconfont icon-fangdajing"></span>
+          <input type="text" class="search" id="search">
+          <div class="searchbox">
+          </div>
+        </label>
+        <!-- 用户信息 -->
+        <div class="information">
+        </div>
+      </div>
+
+      <!-- 歌单详情界面 -->
+      <div class="playlist">
+        <div class="Song"></div>
+        <div class="song"></div>
+      </div>
+
+
+
+    </div>
+    <!-- 侧边空白 -->
+    <div class=" aside"></div>
+  </div>
+  <!-- 底部 -->
+  <div class="footer">
+    <div class="time"></div>
+    <div class="slider"></div>
+    <div class="progress"></div>
+    <img class="audio-picture">
+    <div class="audio-song"></div>
+    <div class="previous iconfont icon-prev-full"></div>
+    <div class="pause iconfont icon-zanting"></div>
+    <div class="next iconfont icon-next-full"></div>
+    <div class="volume iconfont icon-shengyin_shiti"></div>
+    <input type="range" class="volume-progress">
+    <audio class="audio"></audio>
+  </div>
+  <div class="curtain"></div>
+  <script src="./common.js"></script>
+  <script src="./search.js"></script>
+</body>
+
+</html>

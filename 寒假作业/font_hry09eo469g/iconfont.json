@@ -1,0 +1,65 @@
+{
+  "id": "",
+  "name": "",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "1254",
+      "name": "喜爱",
+      "font_class": "xiai",
+      "unicode": "f0145",
+      "unicode_decimal": 983365
+    },
+    {
+      "icon_id": "677569",
+      "name": "放大镜",
+      "font_class": "fangdajing",
+      "unicode": "e617",
+      "unicode_decimal": 58903
+    },
+    {
+      "icon_id": "830289",
+      "name": "箭头-左",
+      "font_class": "jiantouzuo",
+      "unicode": "e659",
+      "unicode_decimal": 58969
+    },
+    {
+      "icon_id": "1221894",
+      "name": "房子 实心",
+      "font_class": "solid-home",
+      "unicode": "e641",
+      "unicode_decimal": 58945
+    },
+    {
+      "icon_id": "1305012",
+      "name": "Headset-2",
+      "font_class": "18erji-2",
+      "unicode": "e688",
+      "unicode_decimal": 59016
+    },
+    {
+      "icon_id": "8875692",
+      "name": "箭头右",
+      "font_class": "jiantouyou",
+      "unicode": "e667",
+      "unicode_decimal": 58983
+    },
+    {
+      "icon_id": "28356353",
+      "name": "wangyiyun",
+      "font_class": "wangyiyun",
+      "unicode": "e501",
+      "unicode_decimal": 58625
+    },
+    {
+      "icon_id": "33046558",
+      "name": "24gl-musicAlbum-copy",
+      "font_class": "gl-musicAlbum",
+      "unicode": "e503",
+      "unicode_decimal": 58627
+    }
+  ]
+}
