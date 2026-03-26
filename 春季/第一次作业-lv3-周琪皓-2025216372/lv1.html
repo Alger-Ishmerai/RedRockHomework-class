@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <input type="text" class="search" placeholder="防抖之请输入文本">
+  <br>
+  <input type="text" class="seek" placeholder="节流之请输入文本">
+  <script>
+    // 防抖函数
+    function debounce(fn, t = 300) {
+      let timer
+      return function (e) {
+        if (timer) clearTimeout(timer)
+        timer = setTimeout(function () {
+          fn(e)
+        }, t)
+      }
+    }
+    function search(value) {
+      console.log(`您已经向服务器发起搜索请求，搜索内容是${value}`)
+    }
+    const searchInput = document.querySelector('.search')
+    const debounceSearch = debounce(search, 500)
+    searchInput.addEventListener('input', (e) => {
+      debounceSearch(e.target.value)
+    })
+    //节流
+    function throttle(fn, t) {
+      let timer
+      return function (e) {
+        if (!timer) {
+          timer = setTimeout(function () {
+            fn(e)
+            timer = null
+          }, t)
+        }
+      }
+    }
+    const seekInput = document.querySelector('.seek')
+    const throttleSeek = throttle(search, 1000)
+    seekInput.addEventListener('input', (e) => {
+      throttleSeek(e.target.value)
+    })
+  </script>
+</body>
+
+</html>

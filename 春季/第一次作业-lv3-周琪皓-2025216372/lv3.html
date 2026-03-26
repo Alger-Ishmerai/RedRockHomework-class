@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    async function foo() {
+      console.log("start");
+      await bar();
+      console.log("end");
+    }
+    async function bar() {
+      console.log("bar");
+    }
+    console.log(1);
+    setTimeout(() => {
+      console.log("time");
+    });
+    foo();
+    new Promise((resolve) => {
+      console.log("p1");
+      resolve();
+    }).then(() => {
+      console.log("p2");
+    });
+    console.log(2);
+    // 首先由于函数提升（好吧其实提不提升都是先执行），先定义了两个异步函数
+    // 然后按顺序输出了 1 ，然后宏任务队列加入一个输出time
+    // 往下执行foo()函数，先同步输出start，然后调用bar()，继续输出了bar
+    // 由于await后的代码因为需要等待await而进入微任务队列，导致在同步执行后才执行
+    // 然后promise执行输出p1，p2输出进入微任务队列，最后按顺序输出2开始执行微任务输出end和time
+  </script>
+</body>
+
+</html>

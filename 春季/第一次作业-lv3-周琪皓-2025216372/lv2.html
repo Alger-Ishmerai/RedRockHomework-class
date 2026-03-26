@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 懒得写测试案例，函数应该是没问题的啦
+    function compose(...fns) {
+      // 为了从右边开始执行居然有reduceright
+      // 传入初始值
+      return (initialvalue) => {
+        return fns.reduceRight(async (acc, cur) => {
+          // 用一个异步函数等待结果并传入参数返回结果
+          const result = await acc
+          return cur(result)
+        }, initialvalue)
+      }
+    }
+    // 然后有一个参考ai的处理了将同步函数处理为异步函数的结果，虽然我觉得没什么用，但总感觉加上比较好
+    function composeBetter(...fns) {
+      return (initialValue) => {
+        return fns.reduceRight(async (acc, cur) => {
+          const result = await acc
+          return Promise.resolve(cur(result))
+        }, Promise.resolve(initialValue))
+      }
+    }
+  </script>
+</body>
+
+</html>
